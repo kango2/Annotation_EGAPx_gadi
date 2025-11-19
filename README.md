@@ -24,9 +24,9 @@ egapx.py -e nci-gadi \
 /path/to/input.yaml
 ```
 **NOTE:**
-- Include all SRR accession numbers of the SRA dataset you want to use in input.yaml, and also the paths to all the local RNAseq fastq/fastq.gz files you want to use. example input.yaml file [here](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/input.yaml)
-- SRA dataset needs to be downloaded using egapx, if you downloaded them with other methods and point to them as paths, it will not work offline. (this is a bug)
 - The example script [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) submits job to the copyq queue, which **DOES** have internet access but is limited to 10 hours walltime.
+- Include all SRR accession numbers of the SRA dataset you want to use in input.yaml, and also the paths to all the local RNAseq fastq/fastq.gz files you want to use. Example `input.yaml` file [here](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/input.yaml)
+- SRA dataset needs to be downloaded using egapx, if you downloaded them with other methods and point to them as paths, it will not work offline. (this is a bug)
 - The --force option is only needed if there are more than 20 SRA datasets to download.  
 
 # Part 2 - Running EGAPx offline
@@ -41,5 +41,5 @@ egapx.py -e nci-gadi \
 ```
 **NOTE:**
 - This will make a `work` directory in your current directory, hence the cd before executing. I think it can also be set with -w but haven't tested yet.
-- If the job fails due to insufficient walltime, you can resume the run with command generated in `/path/to/output/directory/nextflow/resume.sh`, simply make a mew script and replace the egapx.py command with the one in `resume.sh`, example resume script [2_run_egapx_offline_resume.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/2_run_egapx_offline_resume.sh).
+- If the job fails due to insufficient walltime, you can resume the run with command generated in `/path/to/output/directory/nextflow/resume.sh`, simply make a new script and replace the old egapx.py command with the one in `resume.sh`, example resume script here [2_run_egapx_offline_resume.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/2_run_egapx_offline_resume.sh).
 - Their github page also has guide on preparing the annotation for submission.
