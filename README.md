@@ -16,7 +16,7 @@ and use the output genome fasta file for annotation temporarily. This temporary 
   
 # Part 1 - Downloading files
 When you submit jobs to the normal queue on NCI gadi, it will **NOT** have internet access, therefore you need to download the neccessary files before running EGAPx offline.  
-This script template [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) will download all neccessary lineage, database and SRA dataset files (if SRR is supplied in input.yaml) needed to run annotation on your species genome, the main command withint this script is:
+This script template [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) will download all neccessary lineage, database and SRA dataset files (if SRR is supplied in input.yaml) needed to run annotation on your species genome, the main command within this script is:
 ```
 egapx.py -e nci-gadi \
 --force -dl \
