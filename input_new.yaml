@@ -1,0 +1,17 @@
+genome: /path/to/genome.fa
+taxid: 8457
+short_reads:
+  - /path/to/store/download/files/sra_dir/SRR400401_1.fasta
+  - /path/to/store/download/files/sra_dir/SRR400401_2.fasta
+  - /path/to/store/download/files/sra_dir/SRR400402_1.fasta
+  - /path/to/store/download/files/sra_dir/SRR400402_2.fasta
+  - /path/to/store/download/files/sra_dir/SRR400404_1.fasta
+  - /path/to/store/download/files/sra_dir/SRR400403_2.fasta
+  - /path/to/local/non-SRA.fastq.gz
+  - /path/to/local/non-SRA2_R1.fastq.gz
+  - /path/to/local/non-SRA2_R2.fastq.gz
+long_reads:
+  - /path/to/store/download/files/sra_dir/SRR500501_1.fasta
+  - /path/to/store/download/files/sra_dir/SRR500501_2.fasta
+  - /path/to/store/download/files/sra_dir/SRR500502_1.fasta
+  - /path/to/store/download/files/sra_dir/SRR500502_2.fasta
