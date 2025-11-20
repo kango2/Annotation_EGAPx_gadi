@@ -9,7 +9,7 @@ This guide explains how to run EGAPx **offline on gadi**, including several extr
 Before running EGAPx, you need:
 - **Genome assembly** (fasta format)
 - **taxID of the organism**  
-  (Fine it on [NCBI Taxonomy page](https://www.ncbi.nlm.nih.gov/taxonomy))
+  (Find it on [NCBI Taxonomy page](https://www.ncbi.nlm.nih.gov/taxonomy))
 - **RNA-seq data**:  
    SRA accession numbers (SRR) if they are on NCBI SRA  
    Path to the fastq/fastq.gz files if they are local
