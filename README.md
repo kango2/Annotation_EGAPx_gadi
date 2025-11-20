@@ -35,8 +35,7 @@ You can delete it afterward.
   
 Jobs submitted to the normal Gadi queues do not have internet access.  
 So you must pre-download all required files **before running EGAPx offline**.  
-When you submit jobs to the normal queue on NCI gadi, it will **NOT** have internet access, therefore you need to download the neccessary files before running EGAPx offline.  
-
+  
 ### 1. Create `input_download.yaml`
 This YAML file must include:  
 - Path to your genome
@@ -64,7 +63,7 @@ egapx.py -e nci-gadi \
 **2. You must let EGAPx download SRA datasets itself**  
   if you downloaded the dataset using other methods and point to them as local files, offline mode will not work (bug).  
   
-**3. The download script must run in a queue with internet**
+**3. The download script must run in a queue with internet**  
   In the example script, the job is submitted to `copyq`, it has internet but is limited to 1 cpu and 10hrs walltime.  
 
 **4. --force is only needed if you have >20 SRR accession to download**
