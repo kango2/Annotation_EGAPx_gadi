@@ -66,8 +66,15 @@ egapx.py -e nci-gadi \
 **3. The download script must run in a queue with internet**  
   In the example script, the job is submitted to `copyq`, it has internet but is limited to 1 cpu and 10hrs walltime.  
 
-**4. --force is only needed if you have >20 SRR accession to download**
-
+**4. --force is only needed if you have >20 SRR accession to download**  
+  
+**KNOWN ISSUE**  
+Sometime when downloading the gnomon/2 directory it'll fail randomly with an error message that ends with:
+```
+ftplib.error_temp: 421 Idle timeout (60 seconds): closing control connection
+```
+Just ignore it and re-submit the job.  
+  
 # Part 2 - Running EGAPx offline
 [Back to Top](#Running-EGAPx-on-gadi-offline)  
   
