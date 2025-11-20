@@ -14,6 +14,6 @@ module load sratoolkit/3.1.1
 egapx.py -e nci-gadi \
 --force -dl \
 -lc /path/to/store/download/files \
-/path/to/input.yaml
+/path/to/input_download.yaml
 
 #If the job is killed due to walltime exceeding limit, resubmit again and it'll continue downloading from where it left off.
