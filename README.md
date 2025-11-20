@@ -1,11 +1,10 @@
-<h1 align="Left">test</h1>  
-  
+# Running EGAPx on gadi offline
 EGAPx (**E**ukaryotic **G**enome **A**nnotation **P**ipeline – e**x**ternal) is the pipeline used by NCBI to annotate eukaryotic genomes.  
 Official github: [https://github.com/ncbi/egapx](https://github.com/ncbi/egapx)  
 EGAPx uses **Nextflow** to manage workflow execution.
   
 This guide explains how to run EGAPx **offline on gadi**, including several extra steps required to work around current **Alpha-stage bugs**.
-
+  
 # Requirements
 Before running EGAPx, you need:
 - **Genome assembly** (fasta format)
@@ -32,7 +31,7 @@ Use this temporary genome file for annotation.
 You can delete it afterward.
   
 # Part 1 - Downloading required files
-[Back to Top](#test)  
+[Back to Top](#Running-EGAPx-on-gadi-offline)  
 Jobs submitted to the normal Gadi queues do not have internet access.  
 So you must pre-download all required files **before running EGAPx offline**.  
 When you submit jobs to the normal queue on NCI gadi, it will **NOT** have internet access, therefore you need to download the neccessary files before running EGAPx offline.  
