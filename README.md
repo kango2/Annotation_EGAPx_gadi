@@ -32,6 +32,7 @@ You can delete it afterward.
   
 # Part 1 - Downloading required files
 [Back to Top](#Running-EGAPx-on-gadi-offline)  
+  
 Jobs submitted to the normal Gadi queues do not have internet access.  
 So you must pre-download all required files **before running EGAPx offline**.  
 When you submit jobs to the normal queue on NCI gadi, it will **NOT** have internet access, therefore you need to download the neccessary files before running EGAPx offline.  
@@ -69,6 +70,8 @@ egapx.py -e nci-gadi \
 **4. --force is only needed if you have >20 SRR accession to download**
 
 # Part 2 - Running EGAPx offline
+[Back to Top](#Running-EGAPx-on-gadi-offline)  
+  
 Now that all files are downloaded, prepare a new YAML file for the offline run.  
 ### 1. Create `input_new.yaml`
 Start by copying:
