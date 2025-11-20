@@ -14,28 +14,39 @@ and use the output genome fasta file for annotation temporarily. This temporary 
   
 # Part 1 - Downloading files
 When you submit jobs to the normal queue on NCI gadi, it will **NOT** have internet access, therefore you need to download the neccessary files before running EGAPx offline.  
-This script template [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) will download all neccessary lineage, database and SRA dataset files (if SRR is supplied in input.yaml) needed to run annotation on your species genome, the main command within this script is:
+This script template [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) will download all neccessary lineage, database and SRA dataset files (if SRR is supplied in input_download.yaml) needed to run annotation on your species genome, the main command within this script is:
 ```
 egapx.py -e nci-gadi \
 --force -dl \
 -lc /path/to/store/download/files \
-/path/to/input.yaml
+/path/to/input_download.yaml
 ```
+**IMPORTANT**
+- Only include SRA dataset in `input_download.yaml`, **DO NOT** include any local RNAseq file paths yet or download will fail (bug). Example `input_download.yaml` [here](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/input_download.yaml)
+- SRA dataset needs to be downloaded through egapx, if you downloaded them by other methods and point to them as local paths, offline mode will not work (bug)
+  
 **NOTE:**
 - The example script [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh) submits job to the copyq queue, which **DOES** have internet access but is limited to 10 hours walltime.
-- Include all SRR accession numbers of the SRA dataset you want to use in input.yaml, and also the paths to all the local RNAseq fastq/fastq.gz files you want to use. Example `input.yaml` file [here](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/input.yaml)
-- SRA dataset needs to be downloaded using egapx, if you downloaded them with other methods and point to them as paths, it will not work offline. (this is a bug)
-- There are multiple ways to set up the SRR accession inside `input.yaml` for download, check their github page if interested.
+- There are multiple ways to set up the SRR accession inside `input_download.yaml` for download, check their github page if interested.
 - The --force option is only needed if there are more than 20 SRA datasets to download.  
 
 # Part 2 - Running EGAPx offline
+Now you need a new yaml file for the actual offline EGAPx run.  
+First, make a copy of `input_download.yaml` and name it `input_new.yaml`, then replace the SRR accessions numbers with local file paths, a quick command to get SRA dataset local paths below:
+```
+ls /path/to/store/download/files/sra_dir/*.fasta | \
+awk '{print "  - "$1}'
+```
+Copy the output and replace the SRR accession numbers in `input_new.yaml`.  
+Second, if you have any local non-SRA RNAseq files, append the path of these to `input_new.yaml`. Example of `input_new.yaml` [here](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/input_new.yaml).  
+  
 Now you are ready to run EGAPx offline, check out this script template [2_run_egapx_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/2_run_egapx_offline.sh), the main command within this script is:
 ```
 cd /path/to/output/directory
 
 egapx.py -e nci-gadi \
 -lc /path/to/store/download/files \
-/path/to/input.yaml \
+/path/to/input_new.yaml \
 -o /path/to/output/directory
 ```
 **NOTE:**
