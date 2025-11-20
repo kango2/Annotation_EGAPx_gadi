@@ -17,5 +17,5 @@ cd /path/to/output/directory
 
 egapx.py -e nci-gadi \
 -lc /path/to/store/download/files \
-/path/to/input.yaml \
+/path/to/input_new.yaml \
 -o /path/to/output/directory
