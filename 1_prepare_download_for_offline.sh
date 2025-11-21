@@ -11,6 +11,8 @@ module load egapx/0.4.1-alpha
 module load nextflow/25.04.6
 module load sratoolkit/3.1.1
 
+cd /path/to/store/download/files
+
 egapx.py -e nci-gadi \
 --force -dl \
 -lc /path/to/store/download/files \
