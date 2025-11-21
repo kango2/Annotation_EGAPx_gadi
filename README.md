@@ -49,6 +49,8 @@ Use this script template:
 [1_prepare_download_for_offline.sh](https://github.com/kango2/Annotation_EGAPx_gadi/blob/main/1_prepare_download_for_offline.sh)  
 Core command within this script is:
 ```
+cd /path/to/store/download/files
+
 egapx.py -e nci-gadi \
 --force -dl \
 -lc /path/to/store/download/files \
@@ -66,7 +68,11 @@ egapx.py -e nci-gadi \
 **3. The download script must run in a queue with internet**  
   In the example script, the job is submitted to `copyq`, it has internet but is limited to 1 cpu and 10hrs walltime.  
 
-**4. --force is only needed if you have >20 SRR accession to download**  
+**4. --force**  
+  Only needed if you have >20 SRR accession to download  
+
+**5. fasterq-dump temp dir**  
+  By default this is the current directory, hence the `cd` before command.  
   
 **KNOWN ISSUE**  
 Sometime when downloading the gnomon/2 directory it'll fail randomly with an error message that ends with:
